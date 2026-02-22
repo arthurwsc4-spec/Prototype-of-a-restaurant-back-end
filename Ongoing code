@@ -1,0 +1,84 @@
+
+def add_info(name, age, adress):
+    user_info[name] = {'age': age, 
+                        'adress': adress
+                            }
+
+user_info = {}
+
+while True:                                                    #Confirming user's info
+    try:
+        user_name = input('What\'s your name? ')
+        user_age = int(input('How old are you? '))
+        if user_age <= 0 or user_age >= 100:
+            raise ValueError
+        user_location = input('What\'s your adress for the delivery? ')
+    except ValueError:
+        print('The age given is unreal or random! Please give your real age!')
+    except:
+        print('Some info was mistyped!')
+        break
+
+    try:
+        confirmation = input('Are all the info given correct? (y or n) ')
+        if confirmation.lower() == 'y':
+            add_info(user_name, user_age, user_location)
+            print('Perfect! So let\'s continue!')
+            break
+        elif confirmation not in ('y', 'n'):
+            raise Exception
+        else:
+            print('So please fill all the requirements again so we can continue!')
+            try:
+                user_name = input('What\'s your name? ')
+                user_age = int(input('How old are you? '))
+                if user_age <= 0:
+                    raise Exception
+                user_location = input('What\'s your adress for the delivery? ')
+            except ValueError:
+                print('Some info was mistyped!')
+                break
+    except:
+        print('Some error has occured! Try Again in a few seconds!')
+        break
+
+
+pizza_flavours = {'Cheese': 0,                            #Pizza flavour choosing
+                  'Peperoni': 0,
+                  'Chicken with Catupiry': 0,
+                  'Margarita': 0
+                  }
+
+pizza_info = {'Cheese': 'The cheese flavour is R$30',
+                  'Peperoni': 'The peperoni flavour is R$35',
+                  'Chicken with Catupiry': 'The Chicken with Catupiry flavour is R$40',
+                  'Margarita': 'The Margarita flavour is R$25'
+                  }
+
+def sep_pizza_prices(pizza_prices):
+    for info in pizza_info:
+        print(info)
+
+def count_pizza_flavours(pizza_flavours):            #the flavour here is a str and need to convert to int
+    pass
+
+
+while True:
+    print(f'\nWhich flavour would you like to order? ')
+    sep_pizza_prices(pizza_info)
+    flavour_choice = input('Write here the option chosen please! ')
+    
+    if flavour_choice in pizza_flavours:                     #need to update the logic here
+        pizza_flavours[flavour_choice] += 1
+        another_flavour = input('Do you want to order another flavour or your order is just this? (y/n). ')
+        if another_flavour == 'y':
+           continue
+        else:
+            confirming = input(f'Perfect! So just to confirm if every thing is right: {count_pizza_flavours(pizza_flavours)} (y/n). ')
+            if confirming == 'y':
+                print("Perfect! So let's continue to the payment.")
+                break
+            else:
+                print('So please add again the flavours.')
+    else:
+        print('You chose a flavour that is not in our catalogue! Please choose one that we have and be sure that you are writing the flavour correctly.')
