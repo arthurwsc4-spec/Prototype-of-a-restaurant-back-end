@@ -33,24 +33,24 @@ while True:                                                    #Confirming user'
 
 pizza_flavours = {'Cheese': 0,                            #Info of the pizzas available
                   'Peperoni': 0,
-                  'Chicken with Catupiry': 0,
+                  'Chicken with catupiry': 0,
                   'Margarita': 0
                   }
 
 pizza_info = {'Cheese': 'The cheese flavour is R$30',
                   'Peperoni': 'The peperoni flavour is R$35',
-                  'Chicken with Catupiry': 'The Chicken with Catupiry flavour is R$40',
+                  'Chicken with catupiry': 'The Chicken with catupiry flavour is R$40',
                   'Margarita': 'The Margarita flavour is R$25'
                   }
 
 pizza_prices = {'Cheese': 30,
                 'Peperoni': 35,
-                'Chicken with Catupiry': 40,
+                'Chicken with catupiry': 40,
                 'Margarita': 25
 }
 
 
-def sep_pizza_prices(pizza_prices):     #Show to the user the flavours
+def sep_pizza_prices(pizza_info):     #Show to the user the flavours
     for flavours in pizza_info:
         print(flavours)
 
