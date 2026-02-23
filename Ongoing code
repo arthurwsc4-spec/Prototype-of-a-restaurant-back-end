@@ -9,7 +9,7 @@ while True:                                                    #Confirming user'
     try:                                                       #The logic here was fixed to better
         user_name = input('What\'s your name? ')
         user_age = int(input('How old are you? '))
-        if user_age <= 0 or user_age >= 100:
+        if user_age <= 1 or user_age >= 100:
             raise ValueError
         user_location = input('What\'s your adress for the delivery? ')
     except ValueError:
@@ -21,7 +21,7 @@ while True:                                                    #Confirming user'
         confirmation = input('Are all the info given correct? (y or n) ')
         if confirmation.lower() == 'y':
             add_info(user_name, user_age, user_location)
-            print('Perfect! So let\'s continue!')
+            print('\nPerfect! So let\'s continue!')
             break
         elif confirmation not in ('y', 'n'):
             raise Exception
@@ -30,7 +30,6 @@ while True:                                                    #Confirming user'
     except:
         print('Some error has occured! Try Again in a few seconds!')
         break
-
 
 pizza_flavours = {'Cheese': 0,                            #Info of the pizzas available
                   'Peperoni': 0,
@@ -55,9 +54,9 @@ def sep_pizza_prices(pizza_prices):     #Show to the user the flavours
     for flavours in pizza_info:
         print(flavours)
 
-def count_pizza_flavours(pizza_flavours):            #Count the quantity of each flavours
-    pass
-
+def count_pizza_flavours(pizza_flavours):    #Count the quantity of each flavours and show only those with more then 0
+    if pizza_flavours.values() >= 1:           #EMERGENCIA MAX AQ
+        print()
 
 while True:
     print(f'\nWhich flavour would you like to order? ')
