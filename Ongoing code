@@ -55,17 +55,18 @@ def sep_pizza_prices(pizza_prices):     #Show to the user the flavours
         print(flavours)
 
 def count_pizza_flavours(pizza_flavours):    #Count the quantity of each flavours and show only those with more then 0
-    if pizza_flavours.values() >= 1:           #EMERGENCIA MAX AQ
-        print()
+    for flavour, quantity in pizza_flavours.items():
+        if quantity > 0:
+            print(f'You ordered {quantity} {flavour} pizza(s)')
 
 while True:
     print(f'\nWhich flavour would you like to order? ')
     sep_pizza_prices(pizza_info)
-    flavour_choice = input('Write here the option chosen please! ')
+    flavour_choice = input('Write here the option chosen please! ').capitalize()
     
     if flavour_choice in pizza_flavours:                     #need to update the logic here
         pizza_flavours[flavour_choice] += 1
-        another_flavour = input('Do you want to order another flavour or your order is just this? (y/n). ')
+        another_flavour = input('Do you want to order another flavour or your order is just this? (y/n). ').lower()
         if another_flavour == 'y':
            continue
         else:
