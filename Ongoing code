@@ -6,7 +6,7 @@ def add_info(name, age, adress):
 user_info = {}
 
 while True:                                                    #Confirming user's info
-    try:                                                       #The logic here was fixed to better
+    try:                                                     
         user_name = input('What\'s your name? ')
         user_age = int(input('How old are you? '))
         if user_age <= 1 or user_age >= 100:
@@ -43,18 +43,11 @@ pizza_info = {'Cheese': 'The cheese flavour is R$30',
                   'Margarita': 'The Margarita flavour is R$25'
                   }
 
-pizza_prices = {'Cheese': 30,
-                'Peperoni': 35,
-                'Chicken with catupiry': 40,
-                'Margarita': 25
-}
-
-
-def sep_pizza_prices(pizza_info):     #Show to the user the flavours
+def sep_pizza_prices(pizza_info):     #Show to user the flavours
     for flavours in pizza_info:
         print(flavours)
 
-def count_pizza_flavours(pizza_flavours):    #Count the quantity of each flavours and show only those with more then 0
+def count_pizza_flavours(pizza_flavours):    #Count the amount of each flavours and show only those with more than 0
     for flavour, quantity in pizza_flavours.items():
         if quantity > 0:
             print(f'You ordered {quantity} {flavour} pizza(s)')
@@ -82,4 +75,9 @@ while True:
         print('You chose a flavour that is not in our catalogue! Please choose one that we have and be sure that you are writing the flavour correctly.')
 
 #if sabor in (str).split()
-#add this above
+#add this above on the def functions
+pizza_prices = {'Cheese': 30,
+                'Peperoni': 35,
+                'Chicken with catupiry': 40,
+                'Margarita': 25
+}
