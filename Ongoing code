@@ -70,7 +70,9 @@ while True:
         if another_flavour == 'y':
            continue
         else:
-            confirming = input(f'Perfect! So just to confirm if every thing is right: {count_pizza_flavours(pizza_flavours)} (y/n). ')
+            print(f'Perfect! So just to confirm if every thing is right: ')
+            count_pizza_flavours(pizza_flavours)
+            confirming = input(f'Are the flavours correct? (y/n)')
             if confirming == 'y':
                 print("Perfect! So let's continue to the payment.")
                 break
@@ -78,3 +80,6 @@ while True:
                 print('So please add again the flavours.')
     else:
         print('You chose a flavour that is not in our catalogue! Please choose one that we have and be sure that you are writing the flavour correctly.')
+
+#if sabor in (str).split()
+#add this above
