@@ -64,7 +64,7 @@ while True:
     sep_pizza_prices(pizza_info)
     flavour_choice = input('Write here the option chosen please! ').capitalize()
     
-    if flavour_choice in pizza_flavours:                     #need to update the logic here
+    if flavour_choice in pizza_flavours:                     
         pizza_flavours[flavour_choice] += 1
         another_flavour = input('Do you want to order another flavour or your order is just this? (y/n). ').lower()
         if another_flavour == 'y':
