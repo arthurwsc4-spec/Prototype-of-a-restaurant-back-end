@@ -73,11 +73,20 @@ while True:
                 print('So please add again the flavours.')
     else:
         print('You chose a flavour that is not in our catalogue! Please choose one that we have and be sure that you are writing the flavour correctly.')
+#if sabor in (str).split() <---add this to the code above
 
-#if sabor in (str).split()
-#add this above on the def functions
 pizza_prices = {'Cheese': 30,
                 'Peperoni': 35,
                 'Chicken with catupiry': 40,
                 'Margarita': 25
 }
+def get_the_value(pizza_flavours, pizza_prices):     #It's working, so just leave it there
+    total_value = 0
+    for flavour, quantity in pizza_flavours.items():
+        if flavour in pizza_prices:
+            for tipo, value in pizza_prices.items():
+                total_value += quantity * value
+    return total_value
+print()
+print(f'The total amout of everything ordered was: ${get_the_value(pizza_flavours, pizza_prices)}')
+payment_method = input('How would you like to pay? (Debit, Credit, Pix) ')
