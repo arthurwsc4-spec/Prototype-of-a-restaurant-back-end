@@ -80,13 +80,13 @@ pizza_prices = {'Cheese': 30,
                 'Chicken with catupiry': 40,
                 'Margarita': 25
 }
-def get_the_value(pizza_flavours, pizza_prices):     #It's working, so just leave it there
-    total_value = 0
+def get_the_value(pizza_flavours, pizza_prices):     #It's working, so just leave it there 
+    total_value = 0                                  #It shows the total value of the order
     for flavour, quantity in pizza_flavours.items():
         if flavour in pizza_prices:
             for tipo, value in pizza_prices.items():
                 total_value += quantity * value
     return total_value
-print()
+print() 
 print(f'The total amout of everything ordered was: ${get_the_value(pizza_flavours, pizza_prices)}')
 payment_method = input('How would you like to pay? (Debit, Credit, Pix) ')
