@@ -1,26 +1,36 @@
-def add_info(name, age, adress):
+def add_info(name, age, address, id):
     user_info[name] = {'age': age, 
-                        'adress': adress
+                        'address': address,
+                        'id' : id
                             }
+def verify_infos():
+    pass
+
+def verify_id():  #finish here
+    if len(user_id) == 11:
+        pass
+    else:
+        return False
 
 user_info = {}
 
 while True:                                                    #Confirming user's info
     try:                                                     
-        user_name = input('What\'s your name? ')
+        user_name = input('Please write down you full name: ')
         user_age = int(input('How old are you? '))
-        if user_age <= 1 or user_age >= 100:
+        if user_age <= 10 or user_age >= 100:
             raise ValueError
-        user_location = input('What\'s your adress for the delivery? ')
+        user_location = input('What\'s your address for the delivery? ')
+        user_id = int(input('What is your ID number? '))  #create a confirmation to verify if the format given is valid
     except ValueError:
-        print('The age given is unreal or random! Please give your real age!')
+        print('The age given is unreal, random or bwlow our age policy! Please give your real age if you have written wrong!')
     except:
         print('Some info was mistyped!')
         break
     try:
-        confirmation = input('Are all the info given correct? (y or n) ')
+        confirmation = input('Are all the info given correct? Please confirm every single info given. (y or n) ')
         if confirmation.lower() == 'y':
-            add_info(user_name, user_age, user_location)
+            add_info(user_name, user_age, user_location, user_id)
             print('\nPerfect! So let\'s continue!')
             break
         elif confirmation not in ('y', 'n'):
@@ -70,7 +80,7 @@ while True:
                 print("Perfect! So let's continue to the payment.")
                 break
             else:
-                print('So please add again the flavours.')
+                print('So please add again the flavours you want.')
     else:
         print('You chose a flavour that is not in our catalogue! Please choose one that we have and be sure that you are writing the flavour correctly.')
 #if sabor in (str).split() <---add this to the code above
@@ -80,13 +90,33 @@ pizza_prices = {'Cheese': 30,
                 'Chicken with catupiry': 40,
                 'Margarita': 25
 }
-def get_the_value(pizza_flavours, pizza_prices):     #It's working, so just leave it there 
+def get_the_value(pizza_flavours, pizza_prices):     
     total_value = 0                                  #It shows the total value of the order
     for flavour, quantity in pizza_flavours.items():
         if flavour in pizza_prices:
-            for tipo, value in pizza_prices.items():
-                total_value += quantity * value
+            total_value += quantity * pizza_prices[flavour]
     return total_value
-print() 
-print(f'The total amout of everything ordered was: ${get_the_value(pizza_flavours, pizza_prices)}')
-payment_method = input('How would you like to pay? (Debit, Credit, Pix) ')
+
+card_info = {'Full name' : '',
+             'Card number' : '',
+             'Card expiration date' : '',
+             'CVV' : ''
+             }
+print()
+print(f'The total amount of everything ordered was: ${get_the_value(pizza_flavours, pizza_prices)}')
+payment_method = input('How would you like to pay? (Debit, Credit, Pix) ').capitalize()
+if payment_method == 'Pix':
+    print('Copy the following code and pay with pix:')
+    print('The Pix key is: "1194934-0090"')
+elif payment_method in ('Debit', 'Credit'):
+    print('Please put the information of your card on the order that is asked below:')
+    for info in card_info:
+        if info == 'Full name':
+            card_info[info] = user_name 
+            continue
+        card_info[info] = input(f'Please put your {info} here -> ') #create a confirmation to verify if the format given is valid on the card number, expiration and CVV
+else:
+    print(f'The payment method chosen: {payment_method}; is not available or does not exist.')
+print(card_info)
+
+#finish coding line 6, 18, 80, 111
